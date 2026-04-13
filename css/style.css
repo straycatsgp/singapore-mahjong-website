@@ -1,0 +1,317 @@
+/* ============================================================
+   Singapore Mahjong — Shared Stylesheet
+   gooseberrystudio.com
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* --- Reset & base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #08130a;
+  --bg2:         #0e1f11;
+  --gold:        #d4af37;
+  --gold-light:  #f0d878;
+  --gold-dim:    #a8892a;
+  --white:       #f5f0e8;
+  --muted:       rgba(245,240,232,0.55);
+  --card:        rgba(255,255,255,0.05);
+  --border:      rgba(212,175,55,0.22);
+  --radius:      18px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  min-height: 100vh;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-light); text-decoration: underline; }
+
+/* --- Subtle background pattern --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(30,70,20,0.45) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   SHARED HEADER (used on privacy page)
+   ============================================================ */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 40px;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 12px rgba(212,175,55,0.3);
+}
+
+.site-header .brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.site-header .brand-zh {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.site-header .brand-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.site-header nav {
+  margin-left: auto;
+}
+
+.site-header nav a {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-left: 28px;
+}
+.site-header nav a:hover { color: var(--white); text-decoration: none; }
+
+/* ============================================================
+   SHARED FOOTER
+   ============================================================ */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 32px 40px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.site-footer a { color: var(--gold-dim); }
+.site-footer a:hover { color: var(--gold); }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   COMING-SOON — HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 140px);
+  padding: 60px 24px 40px;
+}
+
+.hero-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 30px;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,0.35),
+    0 8px 40px rgba(212,175,55,0.25),
+    0 20px 60px rgba(0,0,0,0.6);
+  margin-bottom: 36px;
+}
+
+.hero-zh {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-shadow:
+    1px 1px 0 rgba(30,15,0,0.8),
+    0 0 30px rgba(212,175,55,0.4);
+  margin-bottom: 8px;
+}
+
+.hero-en {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.badge-coming-soon {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08));
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* Feature pills */
+.feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 580px;
+  margin-bottom: 52px;
+}
+
+.pill {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 18px;
+  font-size: 0.85rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.pill span {
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+/* App Store placeholder */
+.appstore-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 26px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: default;
+}
+
+.appstore-placeholder svg {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   PRIVACY POLICY PAGE
+   ============================================================ */
+.privacy-container {
+  position: relative;
+  z-index: 10;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 52px 32px 80px;
+}
+
+.privacy-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.privacy-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 44px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.privacy-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin: 36px 0 12px;
+}
+
+.privacy-container p {
+  color: var(--white);
+  margin-bottom: 14px;
+  font-size: 0.97rem;
+}
+
+.privacy-container ul {
+  margin: 8px 0 14px 22px;
+  color: var(--white);
+  font-size: 0.97rem;
+}
+
+.privacy-container ul li {
+  margin-bottom: 6px;
+}
+
+.privacy-container .highlight-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.privacy-container .highlight-box p {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.contact-email {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .site-header { padding: 18px 20px; }
+  .site-footer  { padding: 24px 20px; }
+  .privacy-container { padding: 36px 20px 60px; }
+  .hero-icon { width: 110px; height: 110px; border-radius: 24px; }
+}
