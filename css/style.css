@@ -349,8 +349,8 @@ body::after {
 
 .photo-credit {
   margin-top: 6px;
-  font-size: 0.72rem;
-  color: rgba(245,240,232,0.25);
+  font-size: 0.78rem;
+  color: rgba(245,240,232,0.45);
   letter-spacing: 0.03em;
 }
 
