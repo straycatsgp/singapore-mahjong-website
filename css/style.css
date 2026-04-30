@@ -43,7 +43,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url('../images/Singapore Merlion.jpg');
+  background-image: url('../images/singapore-merlion.jpg');
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
