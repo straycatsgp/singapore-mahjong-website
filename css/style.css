@@ -1,5 +1,5 @@
 /* ============================================================
-   Singapore Mahjong — Shared Stylesheet
+   4 Winds Mahjong — Stylesheet
    gooseberrystudio.com
    ============================================================ */
 
@@ -51,7 +51,6 @@ body::before {
   z-index: 0;
 }
 
-/* Dark tinted overlay so text stays legible */
 body::after {
   content: '';
   position: fixed;
@@ -78,14 +77,11 @@ body::after {
   z-index: 10;
   border-bottom: 1px solid var(--border);
 }
-
 .site-header .logo {
   width: 48px; height: 48px;
-  border-radius: 12px;
-  object-fit: cover;
+  border-radius: 12px; object-fit: cover;
   box-shadow: 0 2px 12px rgba(212,175,55,0.3);
 }
-
 .site-header .brand { display: flex; flex-direction: column; line-height: 1.15; }
 .site-header .brand-zh {
   font-family: 'Ma Shan Zheng', cursive;
@@ -152,26 +148,35 @@ body::after {
   letter-spacing: 0.02em; margin-bottom: 20px;
 }
 
-.badge-coming-soon {
+/* Coming-soon badge → TestFlight badge */
+.badge-coming-soon,
+.badge-testflight {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08));
-  border: 1px solid var(--border);
-  color: var(--gold);
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   padding: 6px 18px; border-radius: 100px; margin-bottom: 32px;
 }
+.badge-coming-soon {
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08));
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+.badge-testflight {
+  background: linear-gradient(135deg, rgba(30,130,60,0.25), rgba(20,100,45,0.15));
+  border: 1px solid rgba(50,200,90,0.35);
+  color: #5de890;
+}
 
 .hero-tagline {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: var(--muted); max-width: 540px;
+  color: var(--muted); max-width: 560px;
   line-height: 1.75; margin-bottom: 44px;
 }
 
 /* Feature pills */
 .feature-pills {
   display: flex; flex-wrap: wrap; gap: 10px;
-  justify-content: center; max-width: 620px;
+  justify-content: center; max-width: 660px;
   margin-bottom: 48px;
 }
 .pill {
@@ -209,7 +214,7 @@ body::after {
 .divider-tile { font-size: 1.6rem; line-height: 1; }
 
 /* ============================================================
-   FEATURES SECTION
+   FEATURES SECTION (shared wrapper)
    ============================================================ */
 .features {
   position: relative; z-index: 10;
@@ -227,9 +232,189 @@ body::after {
 .section-sub {
   text-align: center; color: var(--muted);
   font-size: 1.05rem; margin-bottom: 52px;
+  max-width: 680px; margin-left: auto; margin-right: auto;
 }
 
-/* Cards grid */
+/* ============================================================
+   TWO GAME MODES
+   ============================================================ */
+.modes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.mode-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.mode-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.mode-card--joker {
+  border-color: rgba(212,145,30,0.30);
+  background: rgba(212,145,30,0.04);
+}
+.mode-card--joker:hover {
+  border-color: rgba(212,145,30,0.60);
+}
+
+.mode-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.mode-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.mode-badge {
+  display: inline-block;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 100px;
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.25);
+  color: var(--gold-dim);
+  margin-bottom: 5px;
+}
+.mode-badge--joker {
+  background: rgba(212,145,30,0.14);
+  border-color: rgba(212,145,30,0.35);
+  color: #e09a40;
+}
+.mode-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--white);
+}
+
+.mode-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.mode-list li {
+  font-size: 0.91rem;
+  color: var(--muted);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.55;
+}
+.mode-list li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--gold-dim);
+  font-size: 0.8rem;
+}
+.mode-list li strong { color: var(--white); font-weight: 600; }
+
+/* ============================================================
+   JOKER SHOWCASE
+   ============================================================ */
+.joker-section {
+  position: relative; z-index: 10;
+  max-width: 860px; margin: 0 auto;
+  padding: 64px 24px 80px;
+  text-align: center;
+}
+
+.joker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.joker-tile {
+  background: linear-gradient(160deg, #0f2912 0%, #0a1d0c 100%);
+  border: 1.5px solid rgba(212,175,55,0.38);
+  border-radius: 10px;
+  padding: 22px 10px 14px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 7px;
+  cursor: default;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.joker-tile:hover {
+  border-color: rgba(212,175,55,0.72);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 16px rgba(212,175,55,0.12);
+}
+
+/* Universal tile — golden glow */
+.joker-tile--universal {
+  border-color: rgba(212,175,55,0.65);
+  background: linear-gradient(160deg, #18300e 0%, #0f2210 100%);
+  box-shadow: 0 0 24px rgba(212,175,55,0.15), inset 0 1px 0 rgba(212,175,55,0.15);
+}
+.joker-tile--universal:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 28px rgba(212,175,55,0.28);
+}
+
+/* Symbol — large character or emoji */
+.jt-symbol {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--gold-light);
+}
+.jt-zh {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 2rem;
+}
+/* 2·5·8 stacked characters */
+.jt-258 {
+  font-size: 1.15rem !important;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+.jt-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.jt-desc {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* Flex label — shown on Dragon (most specific) and Universal (most powerful) */
+.jt-label {
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 100px;
+  min-height: 16px;
+  visibility: hidden;
+}
+.jt-label--specific {
+  visibility: visible;
+  background: rgba(200,90,40,0.14);
+  border: 1px solid rgba(200,90,40,0.25);
+  color: rgba(230,150,110,0.85);
+}
+.jt-label--powerful {
+  visibility: visible;
+  background: rgba(212,175,55,0.14);
+  border: 1px solid rgba(212,175,55,0.30);
+  color: var(--gold);
+}
+
+/* ============================================================
+   FEATURE CARDS
+   ============================================================ */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -250,29 +435,39 @@ body::after {
   transform: translateY(-2px);
 }
 
-/* Wide card spans two columns where space allows */
+/* Wide card spans two columns */
 .card--wide {
   grid-column: 1 / -1;
   flex-direction: row; align-items: flex-start; gap: 24px;
 }
 .card--wide .card-icon { flex-shrink: 0; }
 
-.card-icon {
-  font-size: 2rem; line-height: 1;
-}
+.card-icon { font-size: 2rem; line-height: 1; }
 
 .card-body h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.08rem; font-weight: 700;
   color: var(--gold-light); margin-bottom: 8px;
 }
-
 .card-body p {
   font-size: 0.93rem; color: var(--muted); line-height: 1.7;
 }
+.card-body p strong { color: var(--white); font-weight: 600; }
+.card-body p em     { color: var(--gold-dim); font-style: italic; }
 
-.card-body p strong {
-  color: var(--white); font-weight: 600;
+/* Winning-hands chip grid inside wide card */
+.hand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 5px 16px;
+  margin-top: 14px;
+}
+.hand-grid span {
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(212,175,55,0.10);
+  white-space: nowrap;
 }
 
 /* ============================================================
@@ -286,12 +481,10 @@ body::after {
   padding: 52px 24px;
   text-align: center;
 }
-
 .testimony-inner {
   max-width: 620px; margin: 0 auto;
   position: relative;
 }
-
 .testimony-mark {
   font-family: 'Playfair Display', serif;
   font-size: 5rem; line-height: 0.6;
@@ -299,7 +492,6 @@ body::after {
   display: block; margin-bottom: 12px;
   user-select: none;
 }
-
 .testimony-inner p {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.15rem, 3vw, 1.5rem);
@@ -357,13 +549,17 @@ body::after {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 760px) {
+  .modes-grid { grid-template-columns: 1fr; }
+  .joker-grid  { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .card--wide  { flex-direction: column; }
+}
+
 @media (max-width: 640px) {
   .site-header { padding: 18px 20px; }
   .site-footer  { padding: 24px 20px; }
   .privacy-container { padding: 36px 20px 60px; }
   .hero-icon { width: 110px; height: 110px; border-radius: 24px; }
-
-  .card--wide { flex-direction: column; }
-
   .cards-grid { grid-template-columns: 1fr; }
+  .hand-grid  { grid-template-columns: repeat(2, 1fr); }
 }
