@@ -166,6 +166,11 @@ body::after {
   border: 1px solid rgba(50,200,90,0.35);
   color: #5de890;
 }
+.badge-appstore {
+  background: linear-gradient(135deg, rgba(10,102,194,0.25), rgba(0,70,140,0.15));
+  border: 1px solid rgba(30,150,255,0.35);
+  color: #60b8ff;
+}
 
 .hero-tagline {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
@@ -186,14 +191,25 @@ body::after {
 }
 .pill span { color: var(--gold); margin-right: 6px; }
 
-/* App Store placeholder */
-.appstore-placeholder {
+/* App Store button */
+.appstore-btn {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 14px 26px;
-  color: var(--muted); font-size: 0.9rem; cursor: default;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 12px; padding: 14px 28px;
+  color: var(--white); font-size: 0.95rem; font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.appstore-placeholder svg { opacity: 0.5; }
+.appstore-btn:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+  border-color: rgba(255,255,255,0.40);
+  color: var(--white);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.appstore-btn svg { flex-shrink: 0; }
 
 /* ============================================================
    SECTION DIVIDER
@@ -359,21 +375,22 @@ body::after {
   box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 28px rgba(212,175,55,0.28);
 }
 
-/* Symbol — large character or emoji */
-.jt-symbol {
-  font-size: 2.2rem;
-  line-height: 1;
-  color: var(--gold-light);
+/* Actual tile image */
+.jt-img {
+  height: 88px;
+  width: auto;
+  border-radius: 5px;
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.55),
+    0 1px 3px rgba(0,0,0,0.4);
+  display: block;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.jt-zh {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 2rem;
-}
-/* 2·5·8 stacked characters */
-.jt-258 {
-  font-size: 1.15rem !important;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
+.joker-tile:hover .jt-img {
+  transform: scale(1.06);
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.6),
+    0 0 14px rgba(212,175,55,0.18);
 }
 
 .jt-name {
