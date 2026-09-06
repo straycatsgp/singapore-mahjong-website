@@ -1,0 +1,208 @@
+<!--
+  BlockWell — Coming Soon page
+  gooseberrystudio.com/blockwell/
+
+  STAGING NOTE (remove this comment when going live):
+  - This page is NOT linked from anywhere on the live site yet (not from
+    4 Winds Mahjong's page, and there is no studio hub page yet either).
+    It is only reachable by typing this exact URL, so it's safe to build
+    out gradually without it being "live" in any real sense.
+  - <meta name="robots" content="noindex, nofollow"> below keeps search
+    engines from indexing it while it's unfinished - this mirrors exactly
+    how the 4 Winds Mahjong page itself started (see website/DEPLOY.md,
+    "Going live" section) before its own App Store launch.
+  - When BlockWell is ready to announce:
+      1. Remove the noindex meta tag below.
+      2. Replace the "Coming Soon" badge + missing App Store button with
+         the real App Store link/badge (same pattern as the 4 Winds page).
+      3. Add real screenshots to images/ and reference them here.
+      4. Link this page from somewhere on the live site (e.g. a small
+         "More from Gooseberry Studio" line on the 4 Winds page, or a
+         proper studio hub page once there are 2+ live apps).
+  - The placeholder icon art below (images/app-icon-piece.png) is a raw
+    render pulled from the Xcode project, not the finished polished app
+    icon - swap in the real exported icon PNG when available.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlockWell — Gooseberry Studio</title>
+  <meta name="description" content="BlockWell — a 3D block-stacking puzzle game for iPhone and iPad. No gravity, no rush until you choose it: rotate and place polycube pieces by hand, clear layers, and use Bomb and Swap power-ups to dig out of a bad spot." />
+
+  <!-- Keep this page out of search results until it's ready to announce -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="BlockWell" />
+  <meta property="og:description" content="A 3D block-stacking puzzle game. No gravity - you place every piece by hand. Clear layers, dig out of trouble with Bomb and Swap power-ups, and push your score as far as it'll go." />
+  <meta property="og:image"       content="https://gooseberrystudio.com/blockwell/images/app-icon-piece.png" />
+  <meta property="og:url"         content="https://gooseberrystudio.com/blockwell/" />
+  <meta property="og:type"        content="website" />
+
+  <link rel="icon" type="image/png" href="images/app-icon-piece.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Header ────────────────────────────────────────────── -->
+  <header class="site-header">
+    <a href="index.html">
+      <img src="images/app-icon-piece.png" alt="BlockWell logo" class="logo" />
+    </a>
+    <div class="brand">
+      <span class="brand-en">BlockWell</span>
+      <span class="brand-tag">by Gooseberry Studio</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <main>
+    <section class="hero">
+
+      <div class="hero-icon">
+        <img src="images/app-icon-piece.png" alt="BlockWell piece" />
+      </div>
+
+      <h1 class="hero-en">Block<span class="accent">Well</span></h1>
+
+      <span class="badge-coming-soon">Coming Soon</span>
+
+      <p class="hero-tagline">
+        A 3D block-stacking puzzle with no gravity and no rush until you
+        choose it. Rotate and place every piece by hand, clear layers to
+        score, and dig yourself out of a bad spot with Bomb and Swap
+        power-ups.
+      </p>
+
+      <div class="feature-pills">
+        <div class="pill"><span>🧊</span>No-Gravity 3D Placement</div>
+        <div class="pill"><span>💥</span>Bomb &amp; Swap Power-Ups</div>
+        <div class="pill"><span>🎚️</span>3 Difficulty Levels</div>
+        <div class="pill"><span>👻</span>Landing Guide</div>
+        <div class="pill"><span>🎵</span>Music &amp; SFX Controls</div>
+        <div class="pill"><span>📱</span>iPhone · iPad</div>
+      </div>
+
+    </section>
+
+    <!-- ── Divider ───────────────────────────────────────────── -->
+    <div class="section-divider">
+      <span class="divider-tile">🧊</span>
+    </div>
+
+    <!-- ── Feature cards ─────────────────────────────────────── -->
+    <section class="features" id="features">
+      <h2 class="section-heading">How It Plays</h2>
+      <p class="section-sub">
+        Closer to a 3D version of a block-fitting puzzle than a falling-block
+        game — you're always in control of where a piece lands.
+      </p>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-icon">🧊</div>
+          <div class="card-body">
+            <h3>Place, Don't Just Drop</h3>
+            <p>
+              Pieces don't fall on their own. Rotate them on any axis and
+              slide them into place by hand, then watch the well fill up
+              from the bottom — one careless gap can come back to haunt you.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <div class="card-body">
+            <h3>Clear Layers, Beat the Clock</h3>
+            <p>
+              Fill a full horizontal layer to clear it and score a
+              time-based bonus — the faster you clear it, the bigger the
+              reward. Miss a full layer clear-up and that gap gets buried
+              for good.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💣</div>
+          <div class="card-body">
+            <h3>Bomb &amp; Swap Power-Ups</h3>
+            <p>
+              Earn Bomb and Swap charges every time you clear a layer, with
+              no cap on how many you can bank. Bomb blasts away a bad
+              placement; Swap rerolls the piece in your hand — both come in
+              clutch when a run gets ambitious.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎚️</div>
+          <div class="card-body">
+            <h3>Three Difficulty Levels</h3>
+            <p>
+              Easy, Normal and Difficult each tune the pad size, the piece
+              variety, the countdown, and the scoring — so the challenge
+              scales with you, not just the clock.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">👻</div>
+          <div class="card-body">
+            <h3>Optional Landing Guide</h3>
+            <p>
+              A ghost outline shows exactly where a piece will land.
+              Turn it off for a harder, higher-scoring run — every point
+              earned without it counts double.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎵</div>
+          <div class="card-body">
+            <h3>Your Sound, Your Way</h3>
+            <p>
+              Independent Music and Sound Effects toggles, so you can play
+              with the full soundtrack, sound effects only, or in total
+              silence.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Notify band ────────────────────────────────────────── -->
+    <section class="notify-band">
+      <div class="notify-band-inner">
+        <h2>More to come</h2>
+        <p>
+          BlockWell is still in development. Check back here for updates,
+          screenshots, and an App Store link once it's ready to play.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:yvogoossens@gmail.com">Contact</a>
+    </div>
+    <p>&copy; 2026 Yvo Goossens &mdash; Gooseberry Studio. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
