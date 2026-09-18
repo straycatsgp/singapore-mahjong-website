@@ -6,6 +6,13 @@
   by the time BlockWell is submitted for App Store review, and there's no
   harm in it being reachable early - it just isn't linked from anywhere
   yet, so nothing will send visitors to it before then.
+
+  UPDATED 18 September 2026: rewritten to reflect AdMob (non-personalized
+  ads), Game Center, and StoreKit IAP, added this same week - the previous
+  version claimed "no data collected, no network connections, no
+  third-party frameworks," which stopped being true once those were
+  integrated. Keep this in sync with the App Store Connect Data Collection
+  questionnaire answers going forward - the two must not contradict.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -42,23 +49,22 @@
 
     <h1>Privacy Policy</h1>
     <p class="privacy-meta">
-      Effective date: 6 September 2026 &nbsp;&bull;&nbsp;
+      Effective date: 18 September 2026 &nbsp;&bull;&nbsp;
       Developer: Yvo Goossens / Gooseberry Studio &nbsp;&bull;&nbsp;
       App: BlockWell (iOS, iPadOS)
     </p>
 
     <div class="highlight-box">
       <p>
-        BlockWell does not collect, transmit, or share any personal data.
-        Everything the app stores stays on your device.
+        BlockWell itself does not collect any personal data directly. The app
+        shows non-personalized ads and offers a Game Center leaderboard, both
+        of which involve some data collection by Google and Apple as
+        described below - BlockWell never sees, stores, or shares that data
+        itself.
       </p>
     </div>
 
     <h2>1. Information We Collect</h2>
-    <p>
-      BlockWell does not collect any personal information.
-      The app operates entirely on-device and makes no network connections.
-    </p>
     <p>The following preferences and progress are saved locally on your device only:</p>
     <ul>
       <li>Your selected difficulty level (Easy, Normal, or Difficult)</li>
@@ -67,46 +73,100 @@
       <li>Your best score reached on this device</li>
     </ul>
     <p>
-      These values are stored using Apple's standard on-device storage (UserDefaults).
-      They never leave your device.
+      These values are stored using Apple's standard on-device storage (UserDefaults)
+      and never leave your device.
     </p>
-
-    <h2>2. Analytics and Tracking</h2>
     <p>
-      We do not use any analytics services, crash-reporting tools, advertising
-      networks, or third-party tracking SDKs. No data about your gameplay,
-      device, or behaviour is collected or reported anywhere.
+      BlockWell also includes non-personalized advertising (Google AdMob), a
+      leaderboard (Apple Game Center), and an optional "Remove Ads" purchase
+      (Apple's App Store / StoreKit). Each of these involves data collection
+      by Google or Apple, not by us directly - see the next sections for what
+      each one collects.
     </p>
 
-    <h2>3. Third-Party Services</h2>
+    <h2>2. Advertising (Google AdMob)</h2>
     <p>
-      BlockWell does not integrate any third-party services, frameworks,
-      or libraries that collect data. The app does not make any network requests.
+      BlockWell shows ads through Google AdMob, configured to serve only
+      <strong>non-personalized</strong> ads - ads are chosen contextually,
+      not based on your activity in other apps or websites, and we do not
+      show the App Tracking Transparency prompt because we do not request
+      or use your device's advertising identifier (IDFA) for tracking.
     </p>
-
-    <h2>4. Children's Privacy</h2>
+    <p>To select, serve, and measure these ads, Google's SDK collects:</p>
+    <ul>
+      <li>A device identifier (not the IDFA, since we don't request it)</li>
+      <li>Your approximate (coarse) location, estimated from your IP address</li>
+      <li>Which ads were shown and basic interaction data (e.g., taps)</li>
+      <li>Crash and performance diagnostics from the ad SDK itself</li>
+    </ul>
     <p>
-      The app does not knowingly collect any information from anyone,
-      including children under the age of 13. Because no data is collected at all,
-      the app is safe for all ages in this regard.
+      This data is handled by Google, not by us. See
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>
+      and
+      <a href="https://developers.google.com/admob/ios/privacy/data-disclosure" target="_blank" rel="noopener">Google's AdMob data disclosure</a>
+      for details. Purchasing "Remove Ads" (see Section 4) stops all ad
+      requests, and none of this data is collected afterward.
     </p>
 
-    <h2>5. Data Security</h2>
+    <h2>3. Game Center Leaderboard</h2>
     <p>
-      Because no personal data is transmitted, there is no data in transit to
-      protect. Settings stored locally on your device are subject to the security
-      protections provided by Apple's iOS and iPadOS operating systems.
+      If you're signed in to Game Center, BlockWell submits your score at the
+      end of each run to power the built-in leaderboard. This associates
+      your score with your Game Center player ID, entirely through Apple's
+      Game Center service - we don't operate any server of our own and never
+      see this data ourselves. See
+      <a href="https://www.apple.com/legal/privacy/data/en/game-center/" target="_blank" rel="noopener">Apple's Game Center privacy information</a>
+      for details on how Apple handles this.
     </p>
 
-    <h2>6. Your Rights</h2>
+    <h2>4. In-App Purchase (Remove Ads)</h2>
     <p>
-      Since no personal data is collected or stored by us, there is nothing
-      to access, correct, or delete on our end. If you wish to clear your
-      local settings and best score, you can delete and reinstall the app,
-      which removes all locally stored data.
+      The optional "Remove Ads" purchase is processed entirely by Apple
+      through the App Store and StoreKit. We never see or receive your
+      payment details, billing address, or any other purchase information -
+      Apple only tells the app whether the purchase was completed.
     </p>
 
-    <h2>7. Changes to This Policy</h2>
+    <h2>5. Analytics and Tracking</h2>
+    <p>
+      We do not use any separate analytics or crash-reporting service of our
+      own, and we do not track you across other companies' apps or websites.
+      The only data collection beyond on-device storage is what's described
+      above for AdMob (non-personalized only) and Game Center.
+    </p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>
+      BlockWell is not directed at children under 13, and we do not
+      knowingly collect personal information from children. Because ads are
+      shown through Google AdMob, families using this app should also review
+      Google's own guidance on child-directed treatment and applicable
+      children's privacy laws (such as COPPA) in their region. If you
+      believe a child has provided us with personal information, contact us
+      using the details in Section 10 and we will address it.
+    </p>
+
+    <h2>7. Data Security</h2>
+    <p>
+      Settings stored locally on your device are subject to the security
+      protections provided by Apple's iOS and iPadOS operating systems. Data
+      collected by Google (for ads) or Apple (for Game Center and purchases)
+      is protected under their own respective security practices, linked
+      above.
+    </p>
+
+    <h2>8. Your Rights</h2>
+    <p>
+      We ourselves do not hold any personal data - so there is nothing to
+      access, correct, or delete on our end. If you wish to clear your local
+      settings and best score, you can delete and reinstall the app, which
+      removes all locally stored data. To exercise rights over data held by
+      Google or Apple directly (such as your advertising or Game Center
+      data), use the privacy controls on your device (Settings app) or
+      contact Google/Apple directly through the links in Sections 2 and 3.
+    </p>
+
+    <h2>9. Changes to This Policy</h2>
     <p>
       If we update this privacy policy, we will revise the effective date at
       the top of this page. We encourage you to review this page periodically.
@@ -114,7 +174,7 @@
       the updated policy.
     </p>
 
-    <h2>8. Contact</h2>
+    <h2>10. Contact</h2>
     <p>
       If you have any questions about this privacy policy, please contact:
     </p>
