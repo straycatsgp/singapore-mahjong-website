@@ -242,6 +242,56 @@ body::before {
 .card-body p strong { color: var(--white); font-weight: 600; }
 
 /* ============================================================
+   SCREENSHOTS
+   ============================================================ */
+.screenshots {
+  position: relative; z-index: 10;
+  max-width: 1100px; margin: 0 auto;
+  padding: 64px 0 80px;
+}
+.screenshots .section-heading,
+.screenshots .section-sub { padding: 0 24px; }
+
+.screenshot-strip {
+  display: flex; gap: 20px;
+  overflow-x: auto;
+  padding: 8px 24px 20px;
+  scroll-snap-type: x proximity;
+  /* Thin, unobtrusive scrollbar - the strip is still fully usable without it */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) transparent;
+}
+.screenshot-strip::-webkit-scrollbar { height: 8px; }
+.screenshot-strip::-webkit-scrollbar-thumb {
+  background: var(--border-hover); border-radius: 100px;
+}
+
+.screenshot-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 10px 16px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.screenshot-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.screenshot-card img {
+  display: block;
+  height: 380px; width: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.screenshot-card-ipad img { height: 300px; }
+.screenshot-card figcaption {
+  font-size: 0.82rem; color: var(--muted);
+  text-align: center; max-width: 220px;
+}
+
+/* ============================================================
    NOTIFY / STAY TUNED BAND
    ============================================================ */
 .notify-band {
@@ -313,4 +363,6 @@ body::before {
   .privacy-container { padding: 36px 20px 60px; }
   .hero-icon { width: 110px; height: 110px; border-radius: 24px; }
   .cards-grid { grid-template-columns: 1fr; }
+  .screenshot-card img { height: 280px; }
+  .screenshot-card-ipad img { height: 220px; }
 }
